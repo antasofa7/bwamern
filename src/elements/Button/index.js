@@ -22,7 +22,7 @@ export default function Button(props) {
                 props.isLoading ? (
                   <>
                     <span className="spinner-border spinner-border-sm xm-5"></span>
-                    <span className="sr-only">Loading...</span>
+                    <span className="sr-only">Loading...</span> span.spinner
                   </>
                 ) : (
                   props.children
@@ -58,13 +58,15 @@ export default function Button(props) {
       )
     }
   }
-  return <button
-            className={className.join(" ")}
-            style={props.style}
-            onClick={onClick}
-            >
-            {props.children}
-        </button>;
+  return (
+    <button
+      className={className.join(" ")}
+      style={props.style}
+      onClick={onClick}
+      >
+      {props.children}
+    </button>
+    )
 }
 
 Button.propTypes = {
@@ -73,6 +75,7 @@ Button.propTypes = {
   href: propTypes.string,
   target: propTypes.string,
   className: propTypes.string,
+  isPrimary: propTypes.bool,
   isExternal: propTypes.bool,
   isDisabled: propTypes.bool,
   isLoading: propTypes.bool,
